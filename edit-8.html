@@ -22,7 +22,7 @@
                <a href="index.html" class="btn btn-link float-right">Log out</a>
 
                <div
-                  class="btn-group d-flex mb-5"
+                  class="btn-group d-flex"
                   role="navigation"
                   aria-label="navigation"
                >
@@ -33,35 +33,43 @@
                   >
                      Create new
                   </a>
-                  <button
-                     type="button"
-                     class="btn btn-secondary tab-separator tab-active"
-                  >
-                     Review
-                  </button>
+
                   <a
-                     href="all-cards-7.html"
+                     href="review-imagery-4.html"
                      type="button"
                      class="btn btn-secondary tab-separator"
+                  >
+                     Review
+                  </a>
+                  <a
+                     href="all-cards.html"
+                     type="button"
+                     class="btn btn-secondary tab-separator tab-active"
                   >
                      All cards
                   </a>
                </div>
 
-               <div class="mb-5">
+               <h4 class="my-4 text-center text-muted">
+                  Edit card
+               </h4>
+
+               <div class="mb-4">
                   <div class="card bg-primary">
                      <div class="card-body">
-                        One morning, when Gregor Samsa woke from troubled
-                        dreams, he found himself transformed in his bed into a
-                        horrible vermin. He lay on his armour-like back, and if
-                        he lifted his head a little he could see his brown
-                        belly, slightly domed and divided by arches into stiff
-                        sections. The bedding was hardly able to cover it and
-                        seemed ready to slide off any moment. His many legs,
-                        pitifully thin compared with the size of the rest of
-                        him, waved about helplessly as he looked. "What's
-                        happened to me?" he thought. It wasn't a dream. His
-                        room, a proper human
+                        <textarea
+                           rows="11"
+                           class="d-sm-none"
+                           autofocus
+                        ></textarea>
+                        <textarea
+                           rows="6"
+                           class="d-none d-sm-block"
+                           id="test"
+                           autofocus
+                        >
+Gregor then turned to look out the window at the dull weather.Drops of rain could be heard hitting the pane, which made him feel quite sad.</textarea
+                        >
                      </div>
                   </div>
 
@@ -80,28 +88,42 @@
                         room, a proper human
                      </div>
                   </div>
-               </div>
-               <button class="btn btn-link">Edit</button>
-               <div class="float-right">
-                  <a
-                     href="create-imagery-3.html"
-                     class="btn btn-outline-primary mr-4"
-                  >
-                     Needs Work
-                  </a>
 
-                  <a href="review-empty-6.html" class="btn btn-primary">
-                     <img
-                        src="/icons/thumbs-up.svg"
-                        width="20px"
-                        style="margin-bottom: 5px;"
-                        class="mr-2"
-                     />
-                     Got it
-                  </a>
+                  <p class="float-right">139/240</p>
+
+                  <div class="clearfix"></div>
                </div>
+               <button class="btn btn-link">
+                  Discard changes
+               </button>
+
+               <a
+                  href="all-cards-7.html"
+                  class="btn btn-primary btn-lg float-right mb-6"
+               >
+                  <img
+                     src="/icons/save.svg"
+                     width="30px"
+                     style="margin-bottom: 2px;"
+                     class="mr-1"
+                  />
+                  Save
+               </a>
             </div>
          </div>
       </div>
+
+      <!-- //lower portion -->
+      <div>
+         <h4 class="text-center text-muted">
+            Card properties
+         </h4>
+         <p>Created on:</p>
+      </div>
    </body>
+   <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      defer
+   ></script>
+   <script src="script.js" defer></script>
 </html>
