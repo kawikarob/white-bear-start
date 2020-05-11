@@ -3474,8 +3474,8 @@ input[type=button].btn-block {
 }
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
-  border-color: #007bff;
-  background-color: #007bff;
+  border-color: #52535f;
+  background-color: #52535f;
 }
 .custom-control-input:focus ~ .custom-control-label::before {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
@@ -11332,23 +11332,16 @@ h3 {
     border-color: #dee2e6;
   }
 }
-.btn-link {
-  padding-left: 0;
-  padding-right: 0;
-  border: 0;
-  font-weight: 700;
+.background-img {
+  background-image: url(/images/background-landing.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.text-brand {
+h1 {
+  color: #fff;
   font-family: "Fira Sans";
-}
-
-.tab-separator {
-  border-left: 1px #292a30 solid;
-}
-
-.tab-active {
-  background-color: #292a30;
+  font-size: 3.75rem;
 }
 
 .card {
@@ -11369,6 +11362,35 @@ h3 {
 .card.bg-secondary {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.landing-card-text {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  margin-bottom: 1rem;
+}
+
+.get-signed-up {
+  color: #2f52b9;
+}
+
+.btn-link {
+  padding-left: 0;
+  padding-right: 0;
+  border: 0;
+  font-weight: 700;
+}
+
+.text-brand {
+  font-family: "Fira Sans";
+}
+
+.tab-separator {
+  border-left: 1px #292a30 solid;
+}
+
+.tab-active {
+  background-color: #292a30;
 }
 
 .btn-group .btn {
@@ -11394,6 +11416,14 @@ textarea {
 .bg-success,
 .bg-danger p.lead {
   color: #fff;
+}
+
+.landing-padding {
+  padding: 1rem;
+}
+
+.single-line {
+  text-overflow: ellipsis;
 }
 
 /*# sourceMappingURL=dist.css.map */

@@ -1,20 +1,13 @@
-.btn-link {
-   padding-left: 0;
-   padding-right: 0;
-   border: 0;
-   font-weight: $font-weight-bold;
+.background-img {
+   background-image: url(/images/background-landing.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
 }
 
-.text-brand {
+h1 {
+   color: $white;
    font-family: $font-family-brand;
-}
-
-.tab-separator {
-   border-left: 1px $gray-800 solid;
-}
-
-.tab-active {
-   background-color: $gray-800;
+   font-size: $font-size-base * 3.75;
 }
 
 .card {
@@ -35,6 +28,35 @@
 .card.bg-secondary {
    border-top-left-radius: 0;
    border-top-right-radius: 0;
+}
+
+.landing-card-text {
+   color: $black;
+   font-family: $font-family-serif;
+   margin-bottom: 1rem;
+}
+
+.get-signed-up {
+   color: $success;
+}
+
+.btn-link {
+   padding-left: 0;
+   padding-right: 0;
+   border: 0;
+   font-weight: $font-weight-bold;
+}
+
+.text-brand {
+   font-family: $font-family-brand;
+}
+
+.tab-separator {
+   border-left: 1px $gray-800 solid;
+}
+
+.tab-active {
+   background-color: $gray-800;
 }
 
 .btn-group .btn {
@@ -63,4 +85,8 @@ textarea {
 .bg-success,
 .bg-danger p.lead {
    color: $white;
+}
+
+.landing-padding {
+   padding: 1rem;
 }

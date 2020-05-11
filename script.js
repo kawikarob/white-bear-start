@@ -1,3 +1,12 @@
+$(document).ready(function () {
+   $("#sign-up-activate").toggle();
+});
+
+$("#sign-up-button").click(function () {
+   $("#sign-up-button").toggle();
+   $("#sign-up-activate").toggle();
+});
+
 $("#save-imagery").click(function () {
    $("#overlay-success").toggleClass("d-flex d-none");
 });
@@ -29,3 +38,7 @@ textarea.onfocus = function () {
       moveCaretToEnd(textarea);
    }, 1);
 };
+
+$("#delete-checkbox").click(function () {
+   $("#delete-card").toggleClass("invisible");
+});

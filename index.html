@@ -5,83 +5,102 @@
       <link rel="stylesheet" href="style/dist.css" />
       <title>White Bear Start</title>
    </head>
-   <body>
+   <body class="background-img">
       <div class="container">
-         <div class="row">
-            <div
-               class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1"
-            >
-               <img
-                  src="icons/logo-app.svg"
-                  width="32px;"
-                  alt="White Bear logo"
-               />
-
-               <h3 class="d-inline text-brand">White Bear</h3>
-
-               <a href="index.html" class="btn btn-link float-right">Log out</a>
-
-               <div
-                  class="btn-group d-flex"
-                  role="navigation"
-                  aria-label="navigation"
-               >
-                  <button type="button" class="btn btn-secondary tab-active">
-                     Create new
-                  </button>
-
-                  <a
-                     href="review-imagery-4.html"
-                     type="button"
-                     class="btn btn-secondary tab-separator"
-                  >
-                     Review
-                  </a>
-                  <a
-                     href="all-cards-7.html"
-                     type="button"
-                     class="btn btn-secondary tab-separator"
-                  >
-                     All cards
-                  </a>
-               </div>
-
-               <h4 class="my-4 text-center text-muted">
-                  Add an answer
-               </h4>
-
-               <div class="mb-4">
-                  <div class="card bg-secondary">
-                     <div class="card-body">
-                        <textarea
-                           rows="11"
-                           class="d-sm-none"
-                           autofocus
-                        ></textarea>
-                        <textarea
-                           rows="9"
-                           class="d-none d-sm-block"
-                           autofocus
-                        ></textarea>
-                     </div>
-                  </div>
-
-                  <p class="float-right">0/240</p>
-
-                  <div class="clearfix"></div>
-               </div>
-
-               <a
-                  href="create-imagery-3.html"
-                  class="btn btn-outline-primary float-right"
-               >
-                  Next
-               </a>
-            </div>
+         <div class=" row mt-6 mb-8">
+            <img src="/images/logo-landing.png" />
+            <h1 class="ml-5">
+               White Bear
+            </h1>
          </div>
       </div>
-      Just added what i had on page 2 so my index page can navigate throught my
-      other pages while i work on the landing page ^_^
+      <div class="container">
+         <div class="row">
+            <div class="col-4 offset-3 mt-6 ">
+   <!-- Sign up card 1/2 -->
+               <div class="card landing-padding">
+                  <div class="landing-card-text" id="sign-up-card">
+                     <h2 class="card-title">Nice to meet you</h2>
+                     <p class="mb-4">
+                        Sign up for White Bear. Free forever.
+                     </p>
+                     <button
+                        class="btn btn-success btn-lg btn-block btn-lg landing-button"
+                        id="sign-up-button"
+                     >
+                        Sign up
+                     </button>
+
+    <!-- Sign up card 2/2 -->
+                     <div id="sign-up-activate">
+                        <p class="get-signed-up mb-4">
+                           Let's get you signed up.
+                        </p>
+                        <label class="text-muted" for="email-input"
+                           >Email address</label
+                        >
+                        <input
+                           type="email"
+                           class="form-control input-outline"
+                           id="email-input"
+                        />
+
+                        <label class="text-muted mb-4" for="password-input"
+                           >Password</label
+                        >
+                        <input
+                           type="password"
+                           class="form-control input-outline"
+                           id="password-input"
+                        />
+                        <a
+                           href="create-answer-2.html"
+                           type="button"
+                           class="btn btn-success btn-lg btn-block btn-lg landing-button mt-4"
+                           >Let's go!</a
+                        >
+                     </div>
+                  </div>
+               </div>
+            </div>
+<!-- Welcom back card -->
+            <div class="col-4 offset-1">
+              <div class="card landing-padding mt-6" >
+                  <div class="landing-card-text">
+                     <h2 class="card-title mb-4">Welcome back</h2>
+                     <p>
+                        Log in with your email address and password.
+                     </p>
+                     <form>
+                        <div class="form-group">
+                           <label class="text-muted" for="existing-email">Email address</label>
+                           <input
+                              type="email"
+                              class="form-control input-outline"
+                              id="existing-email"
+                           />
+                        </div>
+                        <div class="form-group mb-4">
+                           <label class="text-muted" for="existing-password">Password</label>
+                           <input
+                              type="password"
+                              class="form-control input-outline "
+                              id="existing-password"
+                           />
+                           
+                           <a href="create-answer-2.html" 
+                           type="button" 
+                           class="btn btn-success bt-lg float-right mt-4 ">Log in</a>
+                     </form>
+                  </div>
+               </div>
+            </div>
+
+
+
+
+         </div>
+      </div>
    </body>
    <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"

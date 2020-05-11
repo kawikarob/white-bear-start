@@ -218,3 +218,11 @@ $input-btn-padding-y-lg: 0.5rem;
 $input-btn-padding-x-lg: 1rem;
 $input-font-size-lg: $font-size-base;
 $input-line-height-lg: $line-height-base;
+
+//FORMS
+
+$component-active-color: $white;
+$component-active-bg: theme-color("primary");
+$custom-control-indicator-checked-color: $component-active-color;
+$custom-control-indicator-checked-bg: $component-active-bg;
+$custom-control-indicator-checked-border-color: $custom-control-indicator-checked-bg;

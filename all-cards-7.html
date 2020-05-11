@@ -2,9 +2,169 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style/dist.css" />
       <title>White Bear Start</title>
    </head>
    <body>
-      Hello World ^__^ all cards page under construction.
+      <div class="container">
+         <div class="row">
+            <div
+               class="col-12 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2 col-md-10 offset-md-1"
+            >
+               <img
+                  src="icons/logo-app.svg"
+                  width="32px;"
+                  alt="White Bear logo"
+               />
+
+               <h3 class="d-inline text-brand">White Bear</h3>
+
+               <a href="index.html" class="btn btn-link float-right">Log out</a>
+
+               <div
+                  class="btn-group d-flex mb-5"
+                  role="navigation"
+                  aria-label="navigation"
+               >
+                  <a
+                     href="create-imagery-3.html"
+                     type="button"
+                     class="btn btn-secondary tab-separator"
+                  >
+                     Create new
+                  </a>
+
+                  <a
+                     href="review-imagery-4.html"
+                     type="button"
+                     class="btn btn-secondary tab-separator"
+                  >
+                     Review
+                  </a>
+                  <button
+                     type="button"
+                     class="btn btn-secondary tab-separator tab-active"
+                  >
+                     All cards
+                  </button>
+               </div>
+
+               <!-- // Search and button  -->
+               <div class="row">
+                  <div class="col-8 col-sm-6 mb-6">
+                     <input
+                        type="search"
+                        class="form-control"
+                        placeholder="Search for a word"
+                     />
+                  </div>
+                  <div class="col-4 col-sm-4 mb-4">
+                     <button class="btn btn-sm btn-primary">
+                        Search
+                     </button>
+                  </div>
+               </div>
+
+               <!-- // Drop down -->
+               <div class="row">
+                  <div class="col-4 mb-4">
+                     <div class="text-muted text-nowrap">
+                        <h4>
+                           Sort cards by
+                        </h4>
+                     </div>
+                  </div>
+                  <div class="form-group col-6">
+                     <select class="form-control">
+                        <option>Most Recent</option>
+                        <option>Oldest</option>
+                        <option>Hardest</option>
+                        <option>Easiest</option>
+                     </select>
+                  </div>
+               </div>
+
+               <!-- // Cards and edit   -->
+
+               <div class="row mb-4">
+                  <div class="col-10">
+                     <div class="card bg-primary">
+                        <div
+                           class="card-body"
+                           style="font-size: 16px !important;"
+                        >
+                           One morning, when Gregor Samsa woke from troubled
+                           dreams, he found himself transformed in his bed into
+                           a horrible vermin. He lay on his armour-like back,
+                           and if he lifted his head a little he could see his
+                           brown belly, slightly domed and divided by arches
+                           into stiff sections.
+                        </div>
+                     </div>
+                     <div class="card bg-secondary">
+                        <div
+                           class="card-body"
+                           style="font-size: 16px !important;"
+                        >
+                           One morning, when Gregor Samsa woke from troubled
+                           dreams, he found himself transformed in his bed into
+                           a horrible vermin. He lay on his armour-like back,
+                           and if he lifted his head a little he could see his
+                           brown belly, slightly domed and divided by arches
+                           into stiff sections.
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-2 justify-content-left">
+                     <a href="edit-8.html" class="btn btn-link float-right">
+                        <img src="icons/edit.svg" width="25 px" />
+                        Edit</a
+                     >
+                  </div>
+               </div>
+               <div class="row mb-4">
+                  <div class="col-10">
+                     <div class="card bg-primary">
+                        <div
+                           class="card-body"
+                           style="font-size: 16px !important;"
+                        >
+                           One morning, when Gregor Samsa woke from troubled
+                           dreams, he found himself transformed in his bed into
+                           a horrible vermin. He lay on his armour-like back,
+                           and if he lifted his head a little he could see his
+                           brown belly, slightly domed and divided by arches
+                           into stiff sections.
+                        </div>
+                     </div>
+                     <div class="card bg-secondary">
+                        <div
+                           class="card-body"
+                           style="font-size: 16px !important;"
+                        >
+                           One morning, when Gregor Samsa woke from troubled
+                           dreams, he found himself transformed in his bed into
+                           a horrible vermin. He lay on his armour-like back,
+                           and if he lifted his head a little he could see his
+                           brown belly, slightly domed and divided by arches
+                           into stiff sections.
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-2 justify-content-left">
+                     <a href="edit-8.html" class="btn btn-link float-right">
+                        <img src="icons/edit.svg" width="25 px" />
+                        Edit</a
+                     >
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
    </body>
+   <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      defer
+   ></script>
+   <script src="script.js" defer></script>
 </html>
