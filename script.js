@@ -30,15 +30,27 @@ function moveCaretToEnd(el) {
 
 var textarea = document.getElementById("test");
 
-textarea.onfocus = function () {
-   moveCaretToEnd(textarea);
+// textarea.onfocus = function () {
+//    moveCaretToEnd(textarea);
 
-   // Work around Chrome's little problem
-   window.setTimeout(function () {
-      moveCaretToEnd(textarea);
-   }, 1);
-};
+//    // Work around Chrome's little problem
+//    window.setTimeout(function () {
+//       moveCaretToEnd(textarea);
+//    }, 1);
+// };
 
 $("#delete-checkbox").click(function () {
    $("#delete-card").toggleClass("invisible");
+});
+
+$("#letsGo").click(function () {
+   var emailInput = $("#emailText").val();
+   if (emailInput == "") {
+      $("#warningEmail").show();
+      $("#emailText").addClass("is-invalid");
+   } else {
+      $("#emailText").removeClass("is-invalid");
+      $("#emailText").addClass("is-valid");
+      $("#warningEmail").hide();
+   }
 });

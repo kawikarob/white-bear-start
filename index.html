@@ -36,35 +36,40 @@
                   </button>
 
     <!-- Sign up card 2/2 -->
-
+                     <!-- <form> -->
                      <div id="sign-up-activate">
                         <p class="get-signed-up mb-4">
                            Let's get you signed up.
                         </p>
-                        <label class="text-muted" for="email-input"
-                           >Email address</label
+                        <label class="text-muted">Email address</label
                         >
+                     
                         <input
                            type="email"
                            class="form-control input-outline"
-                           id="email-input"
+                           id="emailText"
+                           required
                         />
+                          <div class="invalid-feedback" id="warningEmail">Please enter your email address</div>
 
-                        <label class="text-muted mb-4" for="password-input"
+                        <label class="text-muted mb-2" for="password-input"
                            >Password</label
                         >
                         <input
                            type="password"
-                           class="form-control input-outline"
+                           class="form-control input-outline is-invalid"
                            id="password-input"
                         />
-                        <a
-                           href="create-answer-2.html"
+                        <div class="invalid-feedback">Please enter your password</div>
+                        <button
+                         
                            type="button"
                            class="btn btn-success btn-lg btn-block btn-lg landing-button mt-4"
-                           >Let's go!</a
+                           id="letsGo"
+                           >Let's go!</button
                         >
                      </div>
+                     </form>
                   </div>
                </div>
             </div>
@@ -84,19 +89,20 @@
                               class="form-control input-outline"
                               id="existing-email"
                            />
-                        </div>
+                           <div class="invalid-feedback">Email required</div>
+                        </didv>
                         <div class="form-group mb-4">
                            <label class="text-muted" for="existing-password">Password</label>
                            <input
                               type="password"
-                              class="form-control input-outline "
+                              class="form-control input-outline" 
                               id="existing-password"
                            />
-                           
+                           <div class="invalid-feedback">Password required</div>
                            <a href="create-answer-2.html" 
                            type="button" 
                            class="btn btn-success bt-lg float-right mt-4 ">Log in</a>
-                     </form>
+                     <!-- </form> -->
                   </div>
                </div>
             <!-- </div> -->
@@ -112,4 +118,8 @@
       defer
    ></script>
    <script src="script.js" defer></script>
+
+   
+
+
 </html>
