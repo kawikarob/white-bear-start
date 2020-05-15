@@ -54,3 +54,38 @@ $("#letsGo").click(function () {
       $("#warningEmail").hide();
    }
 });
+
+$("#letsGo").click(function () {
+   var passwordInput = $("#passwordText").val();
+   if (passwordInput.length === 0) {
+      $("#warningPassword").show();
+      $("#passwordText").addClass("is-invalid");
+   } else if (passwordInput.length <= 9) {
+      $("#warningLength").show();
+      $("#warningPassword").hide();
+      $("#passwordText").addClass("is-invalid");
+   } else {
+      $("#passwordText").removeClass("is-invalid");
+      $("#passwordText").addClass("is-valid");
+      $("#warningLength, #warningPassword").hide();
+   }
+});
+
+// $("#letsGo").click(function () {
+//    var passwordLength = $("#passwordNine").val();
+//    if (passwordLength.length <= 9) {
+//       $("#warningLength").show();
+//       $("#passwordNine").addClass("is-invalid");
+//    } else {
+//       $("#passwordNine").removeClass("is-invalid");
+//       $("#passwordNine").addClass("is-valid");
+//       $("#warningLength").hide();
+//    }
+// });
+
+// //
+// else {
+//    $("#passwordText").removeClass("is-invalid");
+//    $("#passwordText").addClass("is-valid");
+//    $("#warningPassword").hide();
+// }

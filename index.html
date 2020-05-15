@@ -8,7 +8,7 @@
     
    <body class="background-img">
       <div class="container-fluid">
-         <div class=" row mt-6 mb-8 offset-1">
+         <div class=" row mt-6 mb-8 col-sm-12 offset-1">
             <img src="/images/logo-landing.png" />
             <h1 class="ml-5">
                White Bear
@@ -16,7 +16,7 @@
          </div>
       </div>
 
-    <!-- Need to fix for all views -->
+   
       <div class="container">
          <div class="row justify-content-center">
             <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 offset-md-1 col-sm-10 offset-sm-1 mr-2">
@@ -36,7 +36,7 @@
                   </button>
 
     <!-- Sign up card 2/2 -->
-                     <!-- <form> -->
+                     
                      <div id="sign-up-activate">
                         <p class="get-signed-up mb-4">
                            Let's get you signed up.
@@ -52,15 +52,17 @@
                         />
                           <div class="invalid-feedback" id="warningEmail">Please enter your email address</div>
 
-                        <label class="text-muted mb-2" for="password-input"
+                        <label class="text-muted mb-2" 
                            >Password</label
                         >
                         <input
                            type="password"
-                           class="form-control input-outline is-invalid"
-                           id="password-input"
+                           class="form-control input-outline"
+                           id="passwordText"
+                           
                         />
-                        <div class="invalid-feedback">Please enter your password</div>
+                        <div class="invalid-feedback" id="warningPassword" style="display: none;">Please enter your password</div>
+                        <div class="invalid-feedback" id="warningLength" style="display: none;">Your password must be at least 9 characters</div>
                         <button
                          
                            type="button"
@@ -69,7 +71,7 @@
                            >Let's go!</button
                         >
                      </div>
-                     </form>
+                    
                   </div>
                </div>
             </div>
@@ -105,12 +107,10 @@
                      <!-- </form> -->
                   </div>
                </div>
-            <!-- </div> -->
-
-
-
-
+            </div>
          </div>
+      </div>
+      </div>
       </div>
    </body>
    <script
