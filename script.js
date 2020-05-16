@@ -71,6 +71,24 @@ $("#letsGo").click(function () {
    }
 });
 
+$(function () {
+   $("#countUp").keyup(function () {
+      $("#count1").text($(this).val().length); // #countUp can replace $(this)
+      var wordCount = $("#countUp").val();
+      if (wordCount.length > 0 && wordCount.length <= 240) {
+         $("#nextButton").removeClass("disabled");
+      } else {
+         $("#nextButton").addClass("disabled");
+      }
+      var limitReached = $("#countUp").val();
+      if (limitReached.length > 240) {
+         $("#overLimit").addClass("text-danger");
+      } else {
+         $("#overLimit").removeClass("text-danger");
+      }
+   });
+});
+
 // $("#letsGo").click(function () {
 //    var passwordLength = $("#passwordNine").val();
 //    if (passwordLength.length <= 9) {

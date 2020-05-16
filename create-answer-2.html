@@ -50,30 +50,36 @@
                   Add an answer
                </h4>
 
-               <div class="mb-4">
+               <!-- Text area -->
+
+               <div class="mb-3">
                   <div class="card bg-secondary">
                      <div class="card-body">
-                        <textarea
+                        <!-- <textarea
                            rows="11"
                            class="d-sm-none"
+                           id="countUp"
                            autofocus
-                        ></textarea>
+                        ></textarea> -->
                         <textarea
-                           rows="9"
+                           rows="11"
                            class="d-none d-sm-block"
+                           id="countUp"
                            autofocus
                         ></textarea>
                      </div>
                   </div>
-
-                  <p class="float-right">0/240</p>
-
-                  <div class="clearfix"></div>
                </div>
+               <div class="float-right mb-5" id="overLimit">
+                  <span id="count1">0</span>/240
+               </div>
+
+               <div class="clearfix"></div>
 
                <a
                   href="create-imagery-3.html"
-                  class="btn btn-outline-primary float-right"
+                  class="btn btn-outline-primary float-right disabled"
+                  id="nextButton"
                >
                   Next
                </a>
