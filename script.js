@@ -30,19 +30,11 @@ function moveCaretToEnd(el) {
 
 var textarea = document.getElementById("test");
 
-// textarea.onfocus = function () {
-//    moveCaretToEnd(textarea);
-
-//    // Work around Chrome's little problem
-//    window.setTimeout(function () {
-//       moveCaretToEnd(textarea);
-//    }, 1);
-// };
-
 $("#delete-checkbox").click(function () {
    $("#delete-card").toggleClass("invisible");
 });
 
+// card 1 - email
 $("#letsGo").click(function () {
    var emailInput = $("#emailText").val();
    if (emailInput == "") {
@@ -55,55 +47,84 @@ $("#letsGo").click(function () {
    }
 });
 
+// card 1 - password
 $("#letsGo").click(function () {
    var passwordInput = $("#passwordText").val();
+   var emailInput = $("#emailText").val();
    if (passwordInput.length === 0) {
-      $("#warningPassword").show();
+      $("#warningPassword").show(); // shows warning need pw
+      $("#passwordText").addClass("is-invalid"); // shows invalid
+   } else if (passwordInput.length < 9) {
+      $("#warningLength").show(); // shows that pw needs min of 9 char
+      $("#warningPassword").hide(); // hides input pw warning
       $("#passwordText").addClass("is-invalid");
-   } else if (passwordInput.length <= 9) {
-      $("#warningLength").show();
+   } else if (passwordInput == emailInput) {
+      $("#warningSameAsLocal").show(); // shows cannot be same as email
+      $("#warningLength").hide(); // hides the pw <=9 warning
       $("#warningPassword").hide();
       $("#passwordText").addClass("is-invalid");
    } else {
       $("#passwordText").removeClass("is-invalid");
+      $("#warningSameAsLocal").removeClass("is-invalid");
       $("#passwordText").addClass("is-valid");
       $("#warningLength, #warningPassword").hide();
    }
+
+   var obj = {
+      _id: 678123,
+      email: emailInput,
+      password: passwordInput,
+      createdOn: 200620222659,
+   };
+   console.log(obj);
 });
 
-$(function () {
-   $("#countUp").keyup(function () {
-      $("#count1").text($(this).val().length); // #countUp can replace $(this)
-      var wordCount = $("#countUp").val();
-      if (wordCount.length > 0 && wordCount.length <= 240) {
-         $("#nextButton").removeClass("disabled");
-      } else {
-         $("#nextButton").addClass("disabled");
-      }
-      var limitReached = $("#countUp").val();
-      if (limitReached.length > 240) {
-         $("#overLimit").addClass("text-danger");
-      } else {
-         $("#overLimit").removeClass("text-danger");
-      }
-   });
-});
-
+// card 2 - email - NEED TO ADD FUNTIONS!
 // $("#letsGo").click(function () {
-//    var passwordLength = $("#passwordNine").val();
-//    if (passwordLength.length <= 9) {
-//       $("#warningLength").show();
-//       $("#passwordNine").addClass("is-invalid");
+//    var emailInput = $("#existingEmail").val();
+//    if (emailInput == "") {
+//       $("#warningEmail").show();
+//       $("#existingEmail").addClass("is-invalid");
 //    } else {
-//       $("#passwordNine").removeClass("is-invalid");
-//       $("#passwordNine").addClass("is-valid");
-//       $("#warningLength").hide();
+//       $("#existingEmail").removeClass("is-invalid");
+//       $("#existingEmail").addClass("is-valid");
+//       $("#warningEmail").hide();
 //    }
 // });
 
-// //
-// else {
-//    $("#passwordText").removeClass("is-invalid");
-//    $("#passwordText").addClass("is-valid");
-//    $("#warningPassword").hide();
-// }
+$("#answerInput").keyup(function () {
+   var input = $("#answerInput").val(); // what the user entered to the text area
+   var charCount = input.length; //how many characters the user input
+   $("#charNum").text(charCount);
+   // console.log(charCount);
+   if (charCount > 0 && charCount <= 240) {
+      $("#nextButton").removeClass("disabled");
+   } else {
+      $("#nextButton").addClass("disabled");
+   }
+   if (charCount > 240) {
+      $("#overLimit").addClass("text-danger");
+   } else {
+      $("#overLimit").removeClass("text-danger");
+   }
+});
+// practice markup -- NEED TO DELETE AFTER
+// $("#letsGo").click(function () {
+//    var passwordInput = $("#passwordText").val();
+//    if (passwordInput.length === 0) {
+//       $("#warningPassword").show(); // shows warning need pw
+//       $("#passwordText").addClass("is-invalid"); // shows invalid
+//    } else if (passwordInput.length <= 9) {
+//       $("#warningLength").show(); // shows that pw needs min of 9 char
+//       $("#warningPassword").hide(); // hides input pw warning
+//       $("#passwordText").addClass("is-invalid");
+//       } else if (passwordInput === emailInput) {
+//          $("#warningSameAsLocal").show(); // shows cannot be same as email
+//          $("#warningLength").hide(); // hides the pw <=9 warning
+//          $("#passwordText").addClass("is-invalid");
+//       } else {
+//       $("#passwordText").removeClass("is-invalid");
+//       $("#passwordText").addClass("is-valid");
+//       $("#warningLength, #warningPassword").hide();
+//    }
+// });

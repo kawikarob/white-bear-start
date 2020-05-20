@@ -19,7 +19,7 @@
    
       <div class="container">
          <div class="row justify-content-center">
-            <div class="col-xl-4 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 offset-md-1 col-sm-10 offset-sm-1 mr-2">
+            <div class="col-lg-5 offset-xl-1 col-lg-5 offset-lg-1 col-md-7 offset-md-1 col-sm-10 offset-sm-1 mr-2">
              
    <!-- Sign up card 1/2 -->
                <div class="card landing-padding mb-4 mr-5">
@@ -63,6 +63,7 @@
                         />
                         <div class="invalid-feedback" id="warningPassword" style="display: none;">Please enter your password</div>
                         <div class="invalid-feedback" id="warningLength" style="display: none;">Your password must be at least 9 characters</div>
+                        <div class="invalid-feedback" id="warningSameAsLocal" style="display: none;">Your email address cannot be used in your password</div>
                         <button
                          
                            type="button"
@@ -76,7 +77,7 @@
                </div>
             </div>
 <!-- Welcom back card -->
-            <!-- <div class="ml-2"> -->
+            <div class="col-lg-5"> 
               <div class="card landing-padding " >
                   <div class="landing-card-text">
                      <h2 class="card-title mb-4">Welcome back</h2>
@@ -85,13 +86,14 @@
                      </p>
                      <form>
                         <div class="form-group">
-                           <label class="text-muted" for="existing-email">Email address</label>
+                           <label class="text-muted" for="existingEmail">Email address</label>
                            <input
                               type="email"
                               class="form-control input-outline"
-                              id="existing-email"
+                              id="existingEmail"
                            />
-                           <div class="invalid-feedback">Email required</div>
+                           <div class="invalid-feedback" id="warningEmail">Please enter your email address</div>
+
                         </didv>
                         <div class="form-group mb-4">
                            <label class="text-muted" for="existing-password">Password</label>
@@ -101,10 +103,10 @@
                               id="existing-password"
                            />
                            <div class="invalid-feedback">Password required</div>
-                           <a href="create-answer-2.html" 
+                           <button 
                            type="button" 
-                           class="btn btn-success bt-lg float-right mt-4 ">Log in</a>
-                     <!-- </form> -->
+                           class="btn btn-success bt-lg float-right mt-4 ">Log in</button>
+                        </div>
                   </div>
                </div>
             </div>
