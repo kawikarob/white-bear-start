@@ -478,10 +478,12 @@ $("#letsGo").click(function () {
 $("#saveImagery").click(function () {
    var userStamp2 = {
       _id: "",
-      imagery:
-         "A delicious shishkebab but the first bite of meat after the pointy end is spicy & makes an exclamation point appear over my head like in a JRPG.",
-      answer:
-         "The syntax for making a comment in HTML is <!-- Mike's comment here -->",
+      imagery: encodeURIComponent(
+         "A delicious shishkebab but the first bite of meat after the pointy end is spicy & makes an exclamation point appear over my head like in a JRPG."
+      ),
+      answer: encodeURIComponent(
+         "The syntax for making a comment in HTML is <!-- Mike's comment here -->"
+      ),
       levelNum: 1,
       successfulAttemptsNum: 0,
       createdOn: 200508232659,
