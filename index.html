@@ -48,7 +48,7 @@
                         <input
                            type="email"
                            class="form-control input-outline"
-                           id="emailText"
+                           id="emailRequired"
                            required
                         />
                           <div class="invalid-feedback" id="warningEmail">Please enter your email address</div>
@@ -59,12 +59,13 @@
                         <input
                            type="password"
                            class="form-control input-outline"
-                           id="passwordText"
+                           id="passwordInput"
                            
                         />
                         <div class="invalid-feedback" id="warningPassword" style="display: none;">Please enter your password</div>
                         <div class="invalid-feedback" id="warningLength" style="display: none;">Your password must be at least 9 characters</div>
                         <div class="invalid-feedback" id="warningSameAsLocal" style="display: none;">Your email address cannot be used in your password</div>
+                        <div class="invalid-feedback" id="warningStrongerPassword" style="display: none;">Please enter a stronger password </div>
                         <button
                          
                            type="button"
@@ -114,8 +115,13 @@
             </div>
          </div>
       </div>
+      <!-- <h1>challenge</h1>
+      <button type="button" class="btn btn-primary" id="clickIt">click</button>
+      <div class="btn-danger btn-info"></div> -->
       </div>
       </div>
+ 
+
    </body>
    <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
