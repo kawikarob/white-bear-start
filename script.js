@@ -437,7 +437,7 @@ $("#letsGo").click(function () {
    // GETS CREATEDON VALUE -- maybe can make a function to use for both cards to clean it up
    var todaysDate = new Date(); // current date
    var todaysYear = todaysDate.getFullYear(); //
-   var todaysYearTwoDigit = todaysYear.toString().substring(2);
+   var todaysYearTwoDigit = todaysYear.toString().slice(-2); // using neg num in slice takes from end
    var todaysMonth = todaysDate.getMonth() + 1; // months are 0 based, need to +1 for currtent month
    var todaysDay = todaysDate.getDate(); // current day
    var todaysHour = todaysDate.getHours(); // current hour
@@ -503,7 +503,7 @@ $("#saveImagery").click(function () {
    // GETS CREATEDON VALUE
    var todaysDate = new Date(); // current date
    var todaysYear = todaysDate.getFullYear(); // current year
-   var todaysYearTwoDigit = todaysYear.toString().substring(2);
+   var todaysYearTwoDigit = todaysYear.toString().slice(-2); // neg num slices starting from end
    var todaysMonth = todaysDate.getMonth() + 1; // months are 0 based
    var todaysDay = todaysDate.getDate(); // current day
    var todaysHour = todaysDate.getHours(); // current hour
