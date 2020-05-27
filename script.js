@@ -362,7 +362,13 @@ let popularPasswords = [
 ];
 // filter most common popular passwords beginning with x, y, z
 let popularEightCharPasswords = popularPasswords.filter(
-   (passwords) => passwords.length > 8 // filters through pw array above & returns pw > 8 char
+   (password) => {
+      if (password.length > 8) {
+         return true;
+      } else {
+         return false;
+      }
+   } // filters through pw array above & returns pw > 8 char
 );
 
 /// LANDING PAGE ///
@@ -388,6 +394,7 @@ $("#letsGo").click(function () {
    var isValidPassword = false;
 
    var passwordInput = $("#passwordInput").val();
+   var emailSplit = emailInput.split("@");
    if (passwordInput.length === 0) {
       // if the pw box value is blank
       $("#warningPassword").show(); // shows warning text of "please enter your password"
@@ -397,8 +404,7 @@ $("#letsGo").click(function () {
       $("#warningLength").show(); // warning text of "your password must be at least 9 characters" shows
       $("#warningPassword").hide(); // hides previous warning text
       $("#passwordInput").addClass("is-invalid"); // Bootstrap class is-invalid will border the pw box to red
-   } else if (passwordInput == emailInput) {
-      // if the value of email address and pw are the same
+   } else if (passwordInput == emailSplit[0]) {
       $("#warningSameAsLocal").show(); // warning text of "your email address cannot be used in your password" is shown
       $("#warningLength, #warningPassword").hide(); // hides previous warning text for pw length < 9 & blank pw
       $("#passwordInput").addClass("is-invalid"); // Bootstrap class is-invalid will border the pw box to red
@@ -418,28 +424,20 @@ $("#letsGo").click(function () {
       isValidPassword = true;
    }
 
-   var userStamp = {
-      _id: milliRandomNumber,
-      email: emailInput,
-      password: passwordInput,
-      createdOn: 200508232659,
-   };
-   // if user email and password is valid
-   if (isValidEmail === true && isValidPassword === true) {
-      console.log(userStamp);
-   }
-
    // PADDING FOR DATES
    function addPadding(num) {
-      if (String(num).length < 2) {
-         return "0" + String(num); // add 0 to single digits numbers
+      let numAsString = String(num);
+      if (numAsString.length === 1) {
+         return "0" + numAsString;
       } else {
-         return num;
+         return numAsString;
       }
    }
+
    // GETS CREATEDON VALUE -- maybe can make a function to use for both cards to clean it up
    var todaysDate = new Date(); // current date
-   var todaysYear = todaysDate.getYear() - 100; // year >= 2000, needs to sub 100 for current year
+   var todaysYear = todaysDate.getFullYear(); //
+   var todaysYearTwoDigit = todaysYear.toString().substring(2);
    var todaysMonth = todaysDate.getMonth() + 1; // months are 0 based, need to +1 for currtent month
    var todaysDay = todaysDate.getDate(); // current day
    var todaysHour = todaysDate.getHours(); // current hour
@@ -448,75 +446,13 @@ $("#letsGo").click(function () {
    var todaysMilli = todaysDate.getMilliseconds(); // current milisecond
    var todaysDateTime =
       "" +
-      addPadding(todaysYear) +
+      addPadding(todaysYearTwoDigit) +
       addPadding(todaysMonth) +
       addPadding(todaysDay) +
       addPadding(todaysHour) +
       addPadding(todaysMin) +
       addPadding(todaysSec);
-   userStamp.createdOn = todaysDateTime; // pushes the string of todaysDateTiome to the createdOn property
-
-   // _id VALUE
-   function idPadding(num) {
-      if (String(num).length === 4) {
-         // if length of number is 4 (digits)
-         return "00" + String(num); // returns number with two 0s infront of the number
-      } else if (String(num).length === 5) {
-         // if lenght of number is 5 (digits)
-         return "0" + String(num); // returns number with one 0 infront of the number
-      } else {
-         return num;
-      }
-   }
-   var randomNumber = Math.floor(Math.random() * 1000); // rounds random number down and multiplies it by 1000
-   var milliRandomNumber =
-      "" + idPadding(todaysMilli) + idPadding(randomNumber);
-   userStamp._id = milliRandomNumber;
-});
-
-///// CREATE IMAGERY/////
-$("#saveImagery").click(function () {
-   var userStamp2 = {
-      _id: "",
-      imagery: encodeURIComponent(
-         "A delicious shishkebab but the first bite of meat after the pointy end is spicy & makes an exclamation point appear over my head like in a JRPG."
-      ),
-      answer: encodeURIComponent(
-         "The syntax for making a comment in HTML is <!-- Mike's comment here -->"
-      ),
-      levelNum: 1,
-      successfulAttemptsNum: 0,
-      createdOn: 200508232659,
-      lastAttemptedOn: 200508232659, // same as createdOn
-   };
-
-   // creates padding for the dates and adds a 0 if they are one digit
-   function addPadding(num) {
-      if (String(num).length < 2) {
-         return "0" + String(num);
-      } else {
-         return num;
-      }
-   }
-   // GETS CREATEDON VALUE
-   var todaysDate = new Date(); // current date
-   var todaysYear = todaysDate.getYear() - 100; // current year
-   var todaysMonth = todaysDate.getMonth() + 1; // months are 0 based
-   var todaysDay = todaysDate.getDate(); // current day
-   var todaysHour = todaysDate.getHours(); // current hour
-   var todaysMin = todaysDate.getMinutes(); // current minute
-   var todaysSec = todaysDate.getSeconds(); // current second
-   var todaysMilli = todaysDate.getMilliseconds(); // current milisecond
-   var todaysDateTime =
-      "" +
-      addPadding(todaysYear) +
-      addPadding(todaysMonth) +
-      addPadding(todaysDay) +
-      addPadding(todaysHour) +
-      addPadding(todaysMin) +
-      addPadding(todaysSec);
-   userStamp2.createdOn = todaysDateTime; // pushes the string of todaysDateTiome to the userStamp2 createdOn property
-   userStamp2.successfulAttemptsNum = todaysDateTime;
+   let createdOn = todaysDateTime;
 
    // _id VALUE
    function idPadding(num) {
@@ -529,11 +465,90 @@ $("#saveImagery").click(function () {
       }
    }
 
-   var randomNumber = Math.floor(Math.random() * 1000);
+   var randomNumber = Math.floor(Math.random() * 900) + 100;
    var milliRandomNumber =
       "" + idPadding(todaysMilli) + idPadding(randomNumber);
-   userStamp2._id = milliRandomNumber;
 
+   // var str = new Date().getMilliseconds().toString().padStart(3, "0");
+
+   // var randomNumber = Math.floor(Math.random() * 900) + 100; //
+   // var milliRandomNumber = randomNumber + str;
+
+   var userStamp = {
+      _id: milliRandomNumber,
+      email: emailInput,
+      password: passwordInput,
+      createdOn: createdOn,
+   };
+   // if user email and password is valid
+   if (isValidEmail === true && isValidPassword === true) {
+      console.log(userStamp);
+   }
+});
+
+///// CREATE IMAGERY/////
+// * below is for encoding * //
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+
+$("#saveImagery").click(function () {
+   // PADDING FOR DATES
+   function addPadding(num) {
+      let numAsString = String(num);
+      if (numAsString.length === 1) {
+         return "0" + numAsString;
+      } else {
+         return numAsString;
+      }
+   }
+   // GETS CREATEDON VALUE
+   var todaysDate = new Date(); // current date
+   var todaysYear = todaysDate.getFullYear(); // current year
+   var todaysYearTwoDigit = todaysYear.toString().substring(2);
+   var todaysMonth = todaysDate.getMonth() + 1; // months are 0 based
+   var todaysDay = todaysDate.getDate(); // current day
+   var todaysHour = todaysDate.getHours(); // current hour
+   var todaysMin = todaysDate.getMinutes(); // current minute
+   var todaysSec = todaysDate.getSeconds(); // current second
+   var todaysMilli = todaysDate.getMilliseconds(); // current milisecond
+   var todaysDateTime =
+      "" +
+      addPadding(todaysYearTwoDigit) +
+      addPadding(todaysMonth) +
+      addPadding(todaysDay) +
+      addPadding(todaysHour) +
+      addPadding(todaysMin) +
+      addPadding(todaysSec);
+
+   let createdOn = todaysDateTime;
+
+   // _id VALUE
+   function idPadding(num) {
+      if (String(num).length === 1) {
+         return "00" + String(num); // if number length is 1, then adds two 0s infront of the number
+      } else if (String(num).length === 2) {
+         return "0" + String(num); // if number length is 2, then adds one 0 infront of the number
+      } else {
+         return num;
+      }
+   }
+
+   var randomNumber = Math.floor(Math.random() * 900) + 100;
+   var milliRandomNumber =
+      "" + idPadding(todaysMilli) + idPadding(randomNumber);
+
+   var userStamp2 = {
+      _id: milliRandomNumber,
+      imagery: encodeURIComponent(
+         "A delicious shishkebab but the first bite of meat after the pointy end is spicy & makes an exclamation point appear over my head like in a JRPG."
+      ),
+      answer: encodeURIComponent(
+         "The syntax for making a comment in HTML is <!-- Mike's comment here -->"
+      ),
+      levelNum: 1,
+      successfulAttemptsNum: 0,
+      createdOn: createdOn,
+      lastAttemptedOn: createdOn,
+   };
    console.log(userStamp2);
 });
 
