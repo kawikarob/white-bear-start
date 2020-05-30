@@ -379,15 +379,25 @@ $("#letsGo").click(function () {
    var isValidPassword = false;
 
    var emailInput = $("#emailRequired").val();
+   var emailSplit = emailInput.split("@");
+   var threeUniqueCharEmail = new Set(emailSplit[0]);
+   // Set :stores unique values. When passed in array, removes duplicate values (must have new)
+   // may only occur once; it is unique in the Set's collection
+   var threeUniqueCharEmailArr = [...threeUniqueCharEmail];
+   // spread operator(...) converts it back to array
    if (emailInput == "") {
       // if email address box value is blank when the button lets go is clicked
       $("#warningEmail").show(); // shows warning text of "please enter your email addess" is shown
       $("#emailRequired").addClass("is-invalid"); // Bootstrap class is-invalid will border the email address box to red
+   } else if (threeUniqueCharEmailArr.length < 3) {
+      $("#warningUniqueEmail").show();
+      $("#warningEmail").hide();
+      $("#emailRequired").addClass("is-invalid");
    } else {
       // if email address box value does conatins an email
       $("#emailRequired").removeClass("is-invalid"); // Bootstrap class is-invaild is removed
       $("#emailRequired").addClass("is-valid"); // Bootstrap class is-valid turns email address box border green
-      $("#warningEmail").hide(); // warning sign of "please enter your email address" hides
+      $("#warningEmail, #warningUniqueEmail").hide(); // warning sign of "please enter your email address" hides
       isValidEmail = true;
    }
    // CARD 1 - PASSWORD
@@ -395,6 +405,7 @@ $("#letsGo").click(function () {
 
    var passwordInput = $("#passwordInput").val();
    var emailSplit = emailInput.split("@");
+   console.log(emailSplit);
    if (passwordInput.length === 0) {
       // if the pw box value is blank
       $("#warningPassword").show(); // shows warning text of "please enter your password"
@@ -474,10 +485,34 @@ $("#letsGo").click(function () {
    // var randomNumber = Math.floor(Math.random() * 900) + 100; //
    // var milliRandomNumber = randomNumber + str;
 
+   function incrementByOne(passwordInput) {
+      if (passwordInput.includes("z")) {
+         return "a";
+      } else if (passwordInput.includes("Z")) {
+         return "A";
+      } else if (passwordInput.includes(9)) {
+         return 0;
+      }
+      return String.fromCharCode(passwordInput.charCodeAt() + 1);
+      // String.fromCharCode() method converts Unicode values into characters
+      // unicode : number value for each character is defined by an international standard
+      // charCodeAt() method: return the Unicode of the first character in a string
+      // +1 increments the character up by one. Ex: a becomes b
+      // includes method = boleen
+   }
+
+   let splitPassword = passwordInput
+      .split("") //
+      .map(function (char) {
+         return incrementByOne(char); // interates through the function incrementByOne for every elem
+      })
+      .join("");
+   console.log(splitPassword);
+
    var userStamp = {
       _id: milliRandomNumber,
       email: emailInput,
-      password: passwordInput,
+      password: splitPassword,
       createdOn: createdOn,
    };
    // if user email and password is valid
