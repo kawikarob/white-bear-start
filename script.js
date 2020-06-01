@@ -480,16 +480,12 @@ $("#letsGo").click(function () {
    var milliRandomNumber =
       "" + idPadding(todaysMilli) + idPadding(randomNumber);
 
-   // var str = new Date().getMilliseconds().toString().padStart(3, "0");
-
-   // var randomNumber = Math.floor(Math.random() * 900) + 100; //
-   // var milliRandomNumber = randomNumber + str;
-
+   // increments pw chars by one
    function incrementByOne(passwordInput) {
-      if (passwordInput.includes("z")) {
-         return "a";
-      } else if (passwordInput.includes("Z")) {
+      if (passwordInput.includes("Z")) {
          return "A";
+      } else if (passwordInput.includes("z")) {
+         return "a";
       } else if (passwordInput.includes(9)) {
          return 0;
       }
@@ -502,7 +498,7 @@ $("#letsGo").click(function () {
    }
 
    let splitPassword = passwordInput
-      .split("") //
+      .split("")
       .map(function (char) {
          return incrementByOne(char); // interates through the function incrementByOne for every elem
       })
