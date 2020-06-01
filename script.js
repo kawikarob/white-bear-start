@@ -485,15 +485,24 @@ $("#letsGo").click(function () {
    // increments pw chars by one
    // Z & z becomes A & a
    // 9 becomes 0
-   function incrementByOne(passwordInput) {
-      if (passwordInput.includes("Z")) {
+   function incrementByOne(char) {
+      if (char === "Z") {
          return "A";
-      } else if (passwordInput.includes("z")) {
+      } else if (char === "z") {
          return "a";
-      } else if (passwordInput.includes(9)) {
+      } else if (char === 9) {
          return 0;
       }
-      return String.fromCharCode(passwordInput.charCodeAt() + 1);
+      let charCode = char.charCodeAt();
+      // console.log(charCode);
+      let incrementedCharCode = charCode + 1;
+      // console.log(incrementedCharCode);
+      let convertedCharCode = String.fromCharCode(incrementedCharCode);
+
+      // console.log(convertedCharCode);
+      return convertedCharCode;
+
+      // return String.fromCharCode(char.charCodeAt() + 1);
       // String.fromCharCode() method converts Unicode values into characters
       // unicode : number value for each character is defined by an international standard
       // charCodeAt() method: returns the Unicode of the character at the specified index in a string
@@ -501,19 +510,19 @@ $("#letsGo").click(function () {
       // includes method = boleen
    }
 
-   let splitPassword = passwordInput
+   let encryptedPassword = passwordInput
       // splits each pw char
       .split("")
       .map(function (char) {
          return incrementByOne(char); // interates through the function incrementByOne for every elem
       })
       .join(""); // joins the chars back together
-   console.log(splitPassword);
+   console.log(encryptedPassword);
 
    var userStamp = {
       _id: milliRandomNumber,
       email: emailInput,
-      password: splitPassword,
+      password: encryptedPassword,
       createdOn: createdOn,
    };
    // if user email and password is valid
