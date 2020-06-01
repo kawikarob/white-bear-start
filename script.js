@@ -379,9 +379,9 @@ $("#letsGo").click(function () {
    var isValidPassword = false;
 
    var emailInput = $("#emailRequired").val();
-   var emailSplit = emailInput.split("@");
-   var threeUniqueCharEmail = new Set(emailSplit[0]);
-   // Set :stores unique values. When passed in array, removes duplicate values (must have new)
+   var emailSplit = emailInput.split("@"); // splits first part of email and ending part after @
+   var threeUniqueCharEmail = new Set(emailSplit[0]); // targets email on left side of @
+   // Set :stores unique values. When passed in array, removes duplicate values (must have new infront of Set)
    // may only occur once; it is unique in the Set's collection
    var threeUniqueCharEmailArr = [...threeUniqueCharEmail];
    // spread operator(...) converts it back to array
@@ -407,6 +407,7 @@ $("#letsGo").click(function () {
    var emailSplit = emailInput.split("@");
    console.log(emailSplit);
    if (passwordInput.length === 0) {
+      //
       // if the pw box value is blank
       $("#warningPassword").show(); // shows warning text of "please enter your password"
       $("#passwordInput").addClass("is-invalid"); // Bootstrap class is-invalid will border the pw box to red
@@ -420,6 +421,7 @@ $("#letsGo").click(function () {
       $("#warningLength, #warningPassword").hide(); // hides previous warning text for pw length < 9 & blank pw
       $("#passwordInput").addClass("is-invalid"); // Bootstrap class is-invalid will border the pw box to red
    } else if (popularEightCharPasswords.includes(passwordInput)) {
+      //.includes = boolean, *syntax : arr includes (valueToFind)*
       // if pw contains popular pw
       $("#warningStrongerPassword").show(); // warning text of "Please enter a stronger password" shows
       $("#warningPassword, #warningLength, #warningSameAsLocal").hide(); // hides all prev warning text
@@ -481,6 +483,8 @@ $("#letsGo").click(function () {
       "" + idPadding(todaysMilli) + idPadding(randomNumber);
 
    // increments pw chars by one
+   // Z & z becomes A & a
+   // 9 becomes 0
    function incrementByOne(passwordInput) {
       if (passwordInput.includes("Z")) {
          return "A";
@@ -492,17 +496,18 @@ $("#letsGo").click(function () {
       return String.fromCharCode(passwordInput.charCodeAt() + 1);
       // String.fromCharCode() method converts Unicode values into characters
       // unicode : number value for each character is defined by an international standard
-      // charCodeAt() method: return the Unicode of the first character in a string
+      // charCodeAt() method: returns the Unicode of the character at the specified index in a string
       // +1 increments the character up by one. Ex: a becomes b
       // includes method = boleen
    }
 
    let splitPassword = passwordInput
+      // splits each pw char
       .split("")
       .map(function (char) {
          return incrementByOne(char); // interates through the function incrementByOne for every elem
       })
-      .join("");
+      .join(""); // joins the chars back together
    console.log(splitPassword);
 
    var userStamp = {
